@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="color.css">
+        <title>Farben</title>
+        <script src="color.js"></script>
+    </head>
+    <body onload="setRandomColor()">
+        <script>	
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('deviceorientation', handleOrientation);
+                alert("Device orientation supported!");
+            } else {
+                alert("Device orientation not supported! Use sliders.");
+            }
+        </script>
+        <div class="topBar">
+            <a href="index.html">Back</a>
+        </div>
+        <main class="container">
+            <section id="randomColorBox" class="colorBox">
+                <div class ="textWrap" id="firstTextWrap">
+                    <p class="text"> Match me</p>
+                    <!--
+                        <p class="text" id="randomColor"></p>    
+                    -->
+                    
+                </div>
+            </section>
+            <section id="userColorBox" class="colorBox">
+                <div class="textWrap" id="secondTextWrap">
+                    <p class="text"> Your Color</p>
+                   <!-- 
+                       <p class="text" id="userColor"></p> 
+                    -->
+                </div>
+            </section>
+            <section class="sliders">
+                <input type="range" min="0" max="255" value="0" class="slider" id="redSlider" oninput="handleSlider()">
+                <input type="range" min="0" max="255" value="0" class="slider" id="greenSlider" oninput="handleSlider()">
+                <input type="range" min="0" max="255" value="0" class="slider" id="blueSlider" oninput="handleSlider()">
+            </section>
+
+            <section class="done">
+
+            </section>
+        </main>
+    </body>
+</html>

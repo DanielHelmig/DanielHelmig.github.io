@@ -1,0 +1,114 @@
+#randomColorBox {
+    background-color: white;
+    color:black;
+}
+#userColorBox {
+    background-color: black;
+    color: white
+}
+.colorBox {
+    border: solid black;
+    border-radius: 25px;
+    border-width: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 2%;
+    height: 100%;
+}
+body {
+    margin: 0px;
+    height: 100%;
+}
+#firstTextWrap {
+    background: white;
+    border: dashed black;
+    color: black;
+}
+#secondTextWrap {
+    background: black;
+    border: dashed white;
+    color: white;
+}
+.textWrap {
+    padding: 5px;
+    border-radius: 10px;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.text {
+    font-size: 2.5vw;
+}
+/*
+@media (max-device-width: 1000px) {
+    .slider {
+        display: none;
+    }
+}
+*/
+/*
+Slider configuration
+*/
+.sliders {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.slider {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 100%; 
+    height: 25px; 
+    background: lightgrey; 
+    outline: none; 
+    opacity: 0.7; 
+    -webkit-transition: .2s; 
+    transition: opacity .2s;
+  }
+  .slider:hover {
+    opacity: 1; 
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 25px; 
+    height: 25px; 
+    border-radius: 10px;
+    cursor: pointer; 
+  } 
+  .slider::-moz-range-thumb {
+    width: 25px; 
+    height: 25px; 
+    border-radius: 10px;
+    cursor: pointer; 
+  }
+  #redSlider::-webkit-slider-thumb {
+    background: red; 
+  }
+  
+  #redSlider::-moz-range-thumb {
+    background: red; 
+  }
+  #greenSlider::-webkit-slider-thumb {
+    background: green; 
+  }
+  
+  #greenSlider::-moz-range-thumb {
+    background: green; 
+  }
+  #blueSlider::-webkit-slider-thumb {
+    background: blue; 
+  }
+  
+  #blueSlider::-moz-range-thumb {
+    background: blue; 
+  }
