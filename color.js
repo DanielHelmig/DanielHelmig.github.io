@@ -19,18 +19,41 @@ function setRandomColor() {
 
 function handleOrientation(evt) {
     var abs = evt.absolute;
-    var x = evt.alpha; //0 to 360
+    var x = evt.alpha; //0 to 359
     var y = evt.beta; //-180 to 180
     var z = evt.gamma; //-90 to 90
-    // now map all vars to only be positive
-    var mappedX = x;//0 to 360
-    var mappedY = y + 180; //0 to 360
-    var mappedZ = z + 90; //0 to 180
-    //normalize all vars to range of 0 to 255
-    var normX = Math.floor((mappedX/360)*255);
-    var normY = Math.floor((mappedY/360)*255);
-    var normZ = Math.floor((mappedZ/180)*255);
+    
+    if (x >= 0 & x <= 45) {//0 to 45 deg
+        //do nothing
+    }
+    else if (x > 45 && x <= 180) { //45 to 180 deg
+        x = 45; //cut off
+    } else if (x > 180 && x <= 315) { //181 to 315 deg
+        x = -45; //cut off
+    } else if (x > 315 && x <= 360) { //315 to 360 deg
+       x = x - 360;
+    } //x now [-45,45]
 
+    if (y<=-45) {
+        y = -45;
+    } else if (y>=45) {
+        y = 45;
+    } //y now [-45,45]
+
+    if (z<=-45) {
+        z = -45;
+    } else if (z>=45) {
+        z = 45;
+    }   //z now [-45, 45]
+
+    // now map all vars to only be positive
+    var mappedX = x + 45;//0 to 90
+    var mappedY = y + 45; //0 to 90
+    var mappedZ = z + 45; //0 to 90
+    //normalize all vars to range of 0 to 255
+    var normX = Math.floor((mappedX/90)*255); //red
+    var normY = Math.floor((mappedY/90)*255); //green
+    var normZ = Math.floor((mappedZ/90)*255); //blue
     checkColor(normX, normY, normZ);
     setBG(normX, normY, normZ);
 }
@@ -58,10 +81,16 @@ function checkColor(red, green, blue) {
    if (randomRed+difficulty>red && randomRed-difficulty<red) {
         if (randomGreen+difficulty>green && randomGreen-difficulty<green) {
             if (randomBlue+difficulty>blue && randomBlue-difficulty<blue) {
-                alert("won");
+                var wonBox = document.querySelector(".wonBox");
+                wonBox.style.display = "flex";
                 setRandomColor();
             } 
         } 
    } 
    
+}
+
+function closeWonBox() {
+    var wonBox = document.querySelector(".wonBox");   
+    wonBox.style.display = "none";
 }

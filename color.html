@@ -8,40 +8,46 @@
         <script>	
             if (window.DeviceOrientationEvent) {
                 window.addEventListener('deviceorientation', handleOrientation);
-                alert("Device orientation supported!");
+               // alert("Device orientation supported!");
             } else {
                 alert("Device orientation not supported! Use sliders.");
             }
         </script>
-        <div class="topBar">
-            <a href="index.html">Back</a>
+        <div class="wonBox">
+            <div class="wonContent" onclick="closeWonBox()">
+                <span class="close" onclick="closeWonBox()">&times;</span>
+                <div class="wonText">
+                    <p>YOU WON!</p>   
+                </div>
+            </div>
         </div>
-        <main class="container">
+        <div class="topBar">
+            <a class="menuElement" href="index.html" id="backArrow" alt="Back">
+                <img src="back.svg">
+            </a>
+        </div>
+        <main class="colorcontainer">
             <section id="randomColorBox" class="colorBox">
                 <div class ="textWrap" id="firstTextWrap">
-                    <p class="text"> Match me</p>
-                    <!--
-                        <p class="text" id="randomColor"></p>    
-                    -->
-                    
+                    <p class="text"> Match me</p>     
+                     <!--
+                     <p class="text" id="randomColor"></p>      
+                     -->             
+                                           
                 </div>
             </section>
             <section id="userColorBox" class="colorBox">
                 <div class="textWrap" id="secondTextWrap">
                     <p class="text"> Your Color</p>
-                   <!-- 
-                       <p class="text" id="userColor"></p> 
-                    -->
+                    <!--
+                    <p class="text" id="userColor"></p>     
+                    -->                         
                 </div>
             </section>
             <section class="sliders">
                 <input type="range" min="0" max="255" value="0" class="slider" id="redSlider" oninput="handleSlider()">
                 <input type="range" min="0" max="255" value="0" class="slider" id="greenSlider" oninput="handleSlider()">
                 <input type="range" min="0" max="255" value="0" class="slider" id="blueSlider" oninput="handleSlider()">
-            </section>
-
-            <section class="done">
-
             </section>
         </main>
     </body>
