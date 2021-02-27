@@ -1,10 +1,14 @@
 <html>
     <head>
         <link rel="stylesheet" href="color.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Farben</title>
         <script src="color.js"></script>
     </head>
     <body onload="setRandomColor()">
+        <!--
+            Enable sensor input
+        -->
         <script>	
             if (window.DeviceOrientationEvent) {
                 window.addEventListener('deviceorientation', handleOrientation);
@@ -13,6 +17,9 @@
                 alert("Device orientation not supported! Use sliders.");
             }
         </script>
+        <!-- 
+            Message displayed of the user matched the color close enough
+        -->
         <div class="wonBox">
             <div class="wonContent" onclick="closeWonBox()">
                 <span class="close" onclick="closeWonBox()">&times;</span>
@@ -21,11 +28,18 @@
                 </div>
             </div>
         </div>
+        <!--
+            Navigation bar on top
+        -->
         <div class="topBar">
-            <a class="menuElement" href="index.html" id="backArrow" alt="Back">
-                <img src="back.svg">
+            <a class="menuElement" href="index.html" id="backArrow">
+                <img src="back.svg" alt="Back">
             </a>
+            <a class="menuElement" href="" id="nothing">I do nothing</a>
         </div>
+        <!--
+            Color boxes and the container for them
+        -->
         <main class="colorcontainer">
             <section id="randomColorBox" class="colorBox">
                 <div class ="textWrap" id="firstTextWrap">
@@ -44,11 +58,14 @@
                     -->                         
                 </div>
             </section>
-            <section class="sliders">
-                <input type="range" min="0" max="255" value="0" class="slider" id="redSlider" oninput="handleSlider()">
-                <input type="range" min="0" max="255" value="0" class="slider" id="greenSlider" oninput="handleSlider()">
-                <input type="range" min="0" max="255" value="0" class="slider" id="blueSlider" oninput="handleSlider()">
-            </section>
         </main>
+        <!--
+            sliders for desktop input
+        -->
+        <section class="sliders">
+            <input type="range" min="0" max="255" value="0" class="slider" id="redSlider" oninput="handleSlider()">
+            <input type="range" min="0" max="255" value="0" class="slider" id="greenSlider" oninput="handleSlider()">
+            <input type="range" min="0" max="255" value="0" class="slider" id="blueSlider" oninput="handleSlider()">
+        </section>    
     </body>
 </html>

@@ -2,12 +2,15 @@ var randomRed = 0;
 var randomGreen = 0;
 var randomBlue  = 0;
 var difficulty = 60; //higher number = easier
+
+//Chose a random color to begin with and set it as background
 function setRandomColor() {
     var red = Math.floor(Math.random()*255);
     var green = Math.floor(Math.random()*255);
     var blue = Math.floor(Math.random()*255);
     var bg = document.getElementById("randomColorBox");
     bg.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+    //debug code
     /*var randomText = document.getElementById("randomColor");
     randomText.innerHTML = bg.style.backgroundColor;
     var userText = document.getElementById("userColor");
@@ -17,6 +20,7 @@ function setRandomColor() {
     randomBlue = blue;
 }
 
+//process sensor input
 function handleOrientation(evt) {
     var abs = evt.absolute;
     var x = evt.alpha; //0 to 359
@@ -58,7 +62,7 @@ function handleOrientation(evt) {
     setBG(normX, normY, normZ);
 }
 
-
+// process slider input
 function handleSlider() {   
     var redSlider = document.getElementById("redSlider");
     var greenSlider = document.getElementById("greenSlider");
@@ -70,13 +74,14 @@ function handleSlider() {
     setBG(red, green, blue);
 }
 
+//helper function
 function setBG(red, green, blue) {
     var bg = document.getElementById("userColorBox");
     bg.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
     //document.getElementById("userColor").innerHTML = bg.style.backgroundColor;
 }
 
-
+//check if the user is close enough to the random color
 function checkColor(red, green, blue) {
    if (randomRed+difficulty>red && randomRed-difficulty<red) {
         if (randomGreen+difficulty>green && randomGreen-difficulty<green) {
@@ -90,7 +95,9 @@ function checkColor(red, green, blue) {
    
 }
 
+//Close the won box if user clicks anywhere on the green box or the x
 function closeWonBox() {
     var wonBox = document.querySelector(".wonBox");   
     wonBox.style.display = "none";
 }
+

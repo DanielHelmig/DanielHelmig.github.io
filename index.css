@@ -1,4 +1,11 @@
+/*
+Desktop menu
+*/
 @media (hover: hover) {
+    /*
+    Sidebar 
+    hidden to the left
+    */
     .navBar {
         background-color: green;
         height: 100%;
@@ -6,11 +13,12 @@
         position: fixed;
         z-index: 1;
         top: 0;
-        left: -24%;
+        left: -23%;
         transition: 0.7s;
         display: flex;
         flex-direction: column;
     }
+    /*fade in on hover*/
     .navBar:hover { 
         left: 0%;
     }
@@ -26,15 +34,14 @@
         background-color: lightgrey;
         color: white;
     }
-    .navBar a.icon {
-        display: none;
-    }
 }
+
 /*Mobile menu*/
 @media (hover:none) {
+    /*top bar*/
     .navBar {
         width: 100%;
-        height: 15%;
+        height: 10%;
         background-color: green;
         display: flex;
         flex-direction: row;
@@ -50,16 +57,24 @@
         text-decoration: none;
     } 
 }
- main {
-     margin: 5%;
- }
+/*
+little bit of margin on all sides
+just looks nicer and the sidebar doesn't cover the text
+*/
+main {
+    margin: 5%;
+}
+/*
+light gray background
+*/
 body {
     background-color: rgb(200, 200, 200);
     margin: 0px;
     height: 100%;  
 }
-
-
+/*
+text properties for the sample text
+*/
 .text {
     text-align: center;
     font-size: large;
